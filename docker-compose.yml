@@ -16,8 +16,8 @@ services:
   # Service 2: Database
   redis:
     image: "redis:alpine"
-  networks:
-      -my_network
+    networks:
+      - my_network
 
 # Networks
 networks:
