@@ -1,8 +1,28 @@
 version: "3.9"
 services:
+  # Service 1: web
   web:
     build: .
     ports:
-      - "5000:5000"
+      - "8000:5000"
+    volumes:
+      - .:/code
+    # - my_volume:/code
+    environment:
+      FLASK_ENV: development
+    networks:
+      - my_network
+
+  # Service 2: Database
   redis:
     image: "redis:alpine"
+  networks:
+      -my_network
+
+# Networks
+networks:
+  my_network:
+
+# Volumes
+volumes: 
+    my_volume:
